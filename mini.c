@@ -149,3 +149,34 @@ void deleteObject() {
         redrawCanvas();
     }
 }
+void modifyObject() {
+    int idx;
+    printf("Enter object index: ");
+    scanf("%d",&idx);
+
+    if(idx<0 || idx>=objectCount || !objects[idx].active) {
+        printf("Invalid index\n");
+        return;
+    }
+
+    Shape *s=&objects[idx];
+
+    switch(s->type) {
+        case 1:
+        case 2:
+            printf("Enter new x1 y1 x2 y2: ");
+            scanf("%d%d%d%d",&s->p[0],&s->p[1],&s->p[2],&s->p[3]);
+            break;
+        case 3:
+            printf("Enter new center x y radius: ");
+            scanf("%d%d%d",&s->p[0],&s->p[1],&s->p[2]);
+            break;
+        case 4:
+            printf("Enter new x1 y1 x2 y2 x3 y3: ");
+            scanf("%d%d%d%d%d%d",
+                  &s->p[0],&s->p[1],&s->p[2],
+                  &s->p[3],&s->p[4],&s->p[5]);
+            break;
+    }
+    redrawCanvas();
+}
