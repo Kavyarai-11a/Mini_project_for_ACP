@@ -185,4 +185,33 @@ void listObjects() {
         if(objects[i].active)
             printf("Index %d : Type %d\n",i,objects[i].type);
     }
+}int main() {
+    int choice;
+    clearPicture();
+
+    printf("2D Graphics Editor\n");
+    printf("Canvas size: %d x %d\n", WIDTH, HEIGHT);
+
+    while(1) {
+        printf("\nMenu\n");
+        printf("1. Add Object\n");
+        printf("2. Delete Object\n");
+        printf("3. Modify Object\n");
+        printf("4. Display Picture\n");
+        printf("5. List Objects\n");
+        printf("0. Exit\n");
+        printf("Enter choice: ");
+
+        scanf("%d",&choice);
+
+        switch(choice) {
+            case 1: addObject(); break;
+            case 2: deleteObject(); break;
+            case 3: modifyObject(); break;
+            case 4: displayPicture(); break;
+            case 5: listObjects(); break;
+            case 0: printf("Goodbye.\n"); return 0;
+            default: printf("Invalid choice.\n");
+        }
+    }
 }
