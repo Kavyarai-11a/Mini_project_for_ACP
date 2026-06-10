@@ -180,3 +180,9 @@ void modifyObject() {
     }
     redrawCanvas();
 }
+void listObjects() {
+    for(int i=0;i<objectCount;i++) {
+        if(objects[i].active)
+            printf("Index %d : Type %d\n",i,objects[i].type);
+    }
+}
