@@ -75,3 +75,30 @@ void drawTriangle(int x1,int y1,int x2,int y2,int x3,int y3) {
     drawLine(x2,y2,x3,y3);
     drawLine(x3,y3,x1,y1);
 }
+void redrawCanvas() {
+    clearPicture();
+
+    for(int i=0;i<objectCount;i++) {
+        if(!objects[i].active) continue;
+
+        switch(objects[i].type) {
+            case 1:
+                drawLine(objects[i].p[0],objects[i].p[1],
+                         objects[i].p[2],objects[i].p[3]);
+                break;
+            case 2:
+                drawRectangle(objects[i].p[0],objects[i].p[1],
+                              objects[i].p[2],objects[i].p[3]);
+                break;
+            case 3:
+                drawCircle(objects[i].p[0],objects[i].p[1],
+                           objects[i].p[2]);
+                break;
+            case 4:
+                drawTriangle(objects[i].p[0],objects[i].p[1],
+                             objects[i].p[2],objects[i].p[3],
+                             objects[i].p[4],objects[i].p[5]);
+                break;
+        }
+    }
+}
