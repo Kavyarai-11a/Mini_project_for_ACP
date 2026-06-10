@@ -14,3 +14,19 @@ typedef struct {
     int active;
     int p[6];
 } Shape;
+Shape objects[MAX_OBJECTS];
+int objectCount = 0;
+
+void clearPicture() {
+    for(int i=0;i<HEIGHT;i++)
+        for(int j=0;j<WIDTH;j++)
+            picture[i][j]=EMPTY;
+}
+
+void displayPicture() {
+    for(int i=0;i<HEIGHT;i++) {
+        for(int j=0;j<WIDTH;j++)
+            putchar(picture[i][j]);
+        putchar('\n');
+    }
+}
