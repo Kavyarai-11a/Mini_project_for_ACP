@@ -102,3 +102,40 @@ void redrawCanvas() {
         }
     }
 }
+void addObject() {
+    if(objectCount>=MAX_OBJECTS) return;
+
+    Shape s;
+    printf("Choose shape type:\n");
+    printf("1. Line\n2. Rectangle\n3. Circle\n4. Triangle\n");
+    printf("Enter shape type: ");
+    scanf("%d",&s.type);
+    s.active=1;
+
+    switch(s.type) {
+        case 1:
+            printf("Enter x1 y1 x2 y2: ");
+            scanf("%d%d%d%d",&s.p[0],&s.p[1],&s.p[2],&s.p[3]);
+            break;
+        case 2:
+            printf("Enter top-left x y and bottom-right x y: ");
+            scanf("%d%d%d%d",&s.p[0],&s.p[1],&s.p[2],&s.p[3]);
+            break;
+        case 3:
+            printf("Enter center x y and radius: ");
+            scanf("%d%d%d",&s.p[0],&s.p[1],&s.p[2]);
+            break;
+        case 4:
+            printf("Enter x1 y1 x2 y2 x3 y3: ");
+            scanf("%d%d%d%d%d%d",
+                  &s.p[0],&s.p[1],&s.p[2],
+                  &s.p[3],&s.p[4],&s.p[5]);
+            break;
+        default:
+            printf("Invalid shape.\n");
+            return;
+    }
+
+    objects[objectCount++] = s;
+    redrawCanvas();
+}
