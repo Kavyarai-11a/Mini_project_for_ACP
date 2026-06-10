@@ -139,3 +139,13 @@ void addObject() {
     objects[objectCount++] = s;
     redrawCanvas();
 }
+void deleteObject() {
+    int idx;
+    printf("Enter object index: ");
+    scanf("%d",&idx);
+
+    if(idx>=0 && idx<objectCount) {
+        objects[idx].active=0;
+        redrawCanvas();
+    }
+}
